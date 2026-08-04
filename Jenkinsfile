@@ -1,13 +1,17 @@
 pipeline {
-
     agent any
 
     stages {
 
-        stage('Build Docker Image') {
+        stage('Show Workspace') {
             steps {
                 sh 'pwd'
                 sh 'ls -la'
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
                 sh 'docker compose build'
             }
         }
