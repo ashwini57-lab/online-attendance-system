@@ -3,6 +3,12 @@ pipeline {
 
     stages {
 
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
         stage('Build Docker Image') {
             steps {
                 sh 'docker compose build'
@@ -21,6 +27,5 @@ pipeline {
                 sh 'docker ps'
             }
         }
-
     }
 }
